@@ -300,6 +300,27 @@ rm -rf build .gradle .kotlin
 
 ## 8. Notas Importantes
 
+### Design & UI/UX
+
+**🎨 Diretrizes de Design (Responsabilidade do Claude):**
+- **Estilo:** Minimalista, intuitivo, bonito e chamativo
+- **Contexto:** App educacional gamificado
+- **Cores:** Paleta minimalista já definida (azul primary, verde secondary, roxo accent)
+- **Objetivo:** Design deve facilitar o aprendizado e engajar o usuário
+- **Princípios:**
+  - Interfaces limpas e sem poluição visual
+  - Hierarquia visual clara
+  - Feedback visual imediato nas interações
+  - Animações suaves e não intrusivas
+  - Acessibilidade (contraste, tamanhos de fonte, áreas de toque)
+  - Gamificação integrada de forma natural (não exagerada)
+
+**Decisões de design ficam a cargo do Claude**, sempre priorizando:
+1. Experiência do usuário (UX)
+2. Facilidade de uso
+3. Estética minimalista e moderna
+4. Coerência com o design system estabelecido
+
 ### Segurança & Privacidade
 - **Dados do usuário:** Email, nome, plano de assinatura, progresso nos jogos
 - **LGPD/GDPR:** Cuidado com coleta e armazenamento de dados pessoais
