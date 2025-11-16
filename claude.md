@@ -232,10 +232,11 @@ commonMain/kotlin/com/dev/marcelo/devlanguages/
 
 **🚨 REGRAS CRÍTICAS:**
 
-1. **SEMPRE pergunte ao usuário antes de executar qualquer ação:**
-   - Apresente o que você pretende fazer e aguarde confirmação
-   - Nunca assuma o que o usuário quer sem perguntar
-   - Não crie arquivos, modifique código ou adicione dependências sem permissão
+1. **SEMPRE pergunte ao usuário antes de executar ações importantes:**
+   - **PODE criar livremente:** Pastas, arquivos de código, implementações
+   - **DEVE perguntar antes:** Mudanças na arquitetura, adicionar/remover dependências grandes, mudanças no fluxo do app
+   - Apresente o plano do que vai fazer antes de começar, mas não precisa pedir permissão para cada arquivo
+   - Use bom senso: se é parte da implementação normal, pode criar; se é decisão de arquitetura, pergunte
 
 2. **SEMPRE faça commit após completar cada item do MVP_CHECKLIST.md:**
    - A cada checkbox ✅ marcado no checklist, fazer commit no GitHub
