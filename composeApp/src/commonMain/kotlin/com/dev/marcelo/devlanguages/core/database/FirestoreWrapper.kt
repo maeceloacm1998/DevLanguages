@@ -31,10 +31,10 @@ class FirestoreWrapper {
      * @param documentId ID do documento
      * @param data Dados a serem salvos
      */
-    suspend fun <T : Any> setDocument(
+    suspend fun setDocument(
         collection: String,
         documentId: String,
-        data: T
+        data: Any
     ) {
         firestore.collection(collection)
             .document(documentId)

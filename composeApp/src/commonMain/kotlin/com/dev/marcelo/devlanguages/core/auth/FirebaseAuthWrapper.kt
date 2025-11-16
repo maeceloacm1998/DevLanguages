@@ -53,7 +53,7 @@ class FirebaseAuthWrapper {
     /**
      * Logout
      */
-    fun signOut() {
+    suspend fun signOut() {
         auth.signOut()
     }
 

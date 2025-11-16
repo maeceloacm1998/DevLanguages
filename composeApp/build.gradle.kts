@@ -13,7 +13,7 @@ plugins {
 kotlin {
     androidTarget {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+            jvmTarget.set(JvmTarget.JVM_17)
         }
     }
     
@@ -119,12 +119,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
 dependencies {
     debugImplementation(compose.uiTooling)
+
+    // Firebase BOM (Android - nativo)
+    add("implementation", platform(libs.firebase.bom.lib))
+    add("implementation", libs.firebase.auth.android)
+    add("implementation", libs.firebase.firestore.android)
 }
 

@@ -1,9 +1,12 @@
 package com.dev.marcelo.devlanguages.core.theme.components
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
@@ -35,9 +38,9 @@ fun LoadingIndicator(
 fun FullscreenLoading(
     modifier: Modifier = Modifier
 ) {
-    androidx.compose.foundation.layout.Box(
+    Box(
         modifier = modifier.fillMaxSize(),
-        contentAlignment = androidx.compose.ui.Alignment.Center
+        contentAlignment = Alignment.Center
     ) {
         LoadingIndicator(
             size = 48.dp,
@@ -45,7 +48,3 @@ fun FullscreenLoading(
         )
     }
 }
-
-// Import adicional necessário
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
