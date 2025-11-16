@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -27,21 +28,70 @@ kotlin {
     
     sourceSets {
         androidMain.dependencies {
+            // Compose
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+
+            // Ktor (Android)
+            implementation(libs.ktor.client.okhttp)
+
+            // Koin (Android)
+            implementation(libs.koin.android)
         }
+
+        iosMain.dependencies {
+            // Ktor (iOS)
+            implementation(libs.ktor.client.darwin)
+        }
+
         commonMain.dependencies {
+            // Compose
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
+            // Lifecycle
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+
+            // Navigation
+            implementation(libs.navigation.compose)
+
+            // Ktor (Networking)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.ktor.client.logging)
+
+            // Kotlinx
+            implementation(libs.kotlinx.serialization.json)
+            implementation(libs.kotlinx.datetime)
+            implementation(libs.kotlinx.coroutines.core)
+
+            // Koin (DI)
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+
+            // Firebase
+            implementation(libs.firebase.auth)
+            implementation(libs.firebase.firestore)
+            implementation(libs.firebase.common)
+
+            // Logging
+            implementation(libs.napier)
+
+            // Image Loading
+            implementation(libs.kamel.image)
         }
+
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.kotlin.coroutines.test)
+            implementation(libs.turbine)
         }
     }
 }

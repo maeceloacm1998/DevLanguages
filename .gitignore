@@ -1,19 +1,60 @@
+# Kotlin & Gradle
 *.iml
 .kotlin
 .gradle
 **/build/
-xcuserdata
 !src/**/build/
-local.properties
+
+# IDE
 .idea
+local.properties
+
+# macOS
 .DS_Store
+xcuserdata
 captures
+
+# Android
 .externalNativeBuild
 .cxx
+
+# iOS/Xcode
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
 !*.xcodeproj/project.xcworkspace/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
+Pods/
+*.xcworkspace
+
+# Node
 node_modules/
+
+# ============================================
+# Sensitive Files - NEVER COMMIT
+# ============================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Firebase configuration files (contain API keys)
+google-services.json
+GoogleService-Info.plist
+
+# API Keys and secrets
+secrets.properties
+apikeys.properties
+keystore.properties
+
+# Keystore files
+*.jks
+*.keystore
+
+# App Store / Play Store credentials
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
