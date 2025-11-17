@@ -13,9 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.dev.marcelo.devlanguages.core.di.appModule
-import com.dev.marcelo.devlanguages.core.di.firebaseModule
-import com.dev.marcelo.devlanguages.core.di.networkModule
+import com.dev.marcelo.devlanguages.core.di.appModules
 import com.dev.marcelo.devlanguages.core.navigation.RootScreen
 import com.dev.marcelo.devlanguages.core.navigation.Screen
 import com.dev.marcelo.devlanguages.core.theme.AppTheme
@@ -29,11 +27,7 @@ import org.koin.compose.KoinApplication
 fun App() {
     // Inicializar Koin com todos os modules
     KoinApplication(application = {
-        modules(
-            appModule,
-            networkModule,
-            firebaseModule
-        )
+        modules(appModules)
     }) {
         AppTheme {
             AppNavigation()

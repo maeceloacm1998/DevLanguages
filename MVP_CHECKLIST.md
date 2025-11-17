@@ -90,10 +90,10 @@
 ## 3. Feature: Autenticação
 
 ### 3.1 Domain Layer
-- [ ] Criar `features/auth/domain/model/User.kt`
-- [ ] Criar `features/auth/domain/model/AuthResult.kt` (sealed class)
-- [ ] Criar `features/auth/domain/repository/AuthRepository.kt` (interface)
-- [ ] Criar Use Cases:
+- [x] Criar `features/auth/domain/model/User.kt`
+- [x] Criar `features/auth/domain/model/AuthResult.kt` (sealed class)
+- [x] Criar `features/auth/domain/repository/AuthRepository.kt` (interface)
+- [x] Criar Use Cases:
   - `features/auth/domain/usecase/SignInWithEmailUseCase.kt`
   - `features/auth/domain/usecase/SignUpWithEmailUseCase.kt`
   - `features/auth/domain/usecase/SignInWithGoogleUseCase.kt`
@@ -125,8 +125,13 @@
 - [ ] Adicionar loading states e error handling
 
 ### 3.4 Testes
-- [ ] Testes unitários: `SignInWithEmailUseCaseTest.kt`
-- [ ] Testes unitários: `SignUpWithEmailUseCaseTest.kt`
+- [x] Testes unitários: `SignInWithEmailUseCaseTest.kt`
+- [x] Testes unitários: `SignUpWithEmailUseCaseTest.kt`
+- [x] Testes unitários: `SignInWithGoogleUseCaseTest.kt`
+- [x] Testes unitários: `SignInWithAppleUseCaseTest.kt`
+- [x] Testes unitários: `SignInAnonymouslyUseCaseTest.kt`
+- [x] Testes unitários: `SignOutUseCaseTest.kt`
+- [x] Testes unitários: `GetCurrentUserUseCaseTest.kt`
 - [ ] Testes unitários: `LoginViewModelTest.kt`
 - [ ] Testes unitários: `SignUpViewModelTest.kt`
 

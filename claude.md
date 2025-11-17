@@ -248,11 +248,12 @@ commonMain/kotlin/com/dev/marcelo/devlanguages/
    - Commits devem ser atômicos (uma funcionalidade por vez)
    - Sempre referenciar qual item do checklist foi completado
 
-3. **SEMPRE crie testes unitários para todo código novo:**
+3. **SEMPRE crie testes unitários E rode build completo antes de commitar:**
    - **OBRIGATÓRIO:** Todo Use Case, ViewModel, Repository deve ter testes unitários
-   - **ANTES de commitar:** Rodar os testes e garantir que TODOS estão passando
-   - **Se algum teste falhar:** Corrigir imediatamente antes do commit
-   - **Comando para rodar testes:** `./gradlew test` ou `./gradlew :composeApp:testDebugUnitTest`
+   - **ANTES de commitar - SEMPRE:**
+     1. **Rodar testes:** `./gradlew test` ou `./gradlew :composeApp:testDebugUnitTest`
+     2. **Rodar build completo:** `./gradlew assembleDebug` (para verificar compilação completa)
+     3. **Se algum teste ou build falhar:** Corrigir imediatamente antes do commit
    - **Localização dos testes:** `composeApp/src/commonTest/kotlin/`
    - **Ferramentas:**
      - `kotlin-test` para assertions
@@ -271,6 +272,7 @@ commonMain/kotlin/com/dev/marcelo/devlanguages/
          }
      }
      ```
+   - **IMPORTANTE:** Rodar APENAS testes não é suficiente! O build completo pode ter erros de compilação que os testes não detectam.
 
 **Outras Regras:**
 1. **Clean Architecture obrigatória:** Toda feature deve ter separação clara entre `data/domain/ui`
