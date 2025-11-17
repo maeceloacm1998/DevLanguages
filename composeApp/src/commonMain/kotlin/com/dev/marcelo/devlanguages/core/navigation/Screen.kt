@@ -22,7 +22,10 @@ sealed interface Screen {
     // ===== Onboarding Flow =====
 
     @Serializable
-    data object Onboarding : Screen
+    data object LanguageSelection : Screen
+
+    @Serializable
+    data object Tutorial : Screen
 
     // ===== Main App Flow =====
 
@@ -142,7 +145,8 @@ val Screen.routeName: String
     get() = when (this) {
         is Screen.Login -> "login"
         is Screen.SignUp -> "signup"
-        is Screen.Onboarding -> "onboarding"
+        is Screen.LanguageSelection -> "language_selection"
+        is Screen.Tutorial -> "tutorial"
         is Screen.Home -> "home"
         is Screen.Profile -> "profile"
         is Screen.Generating -> "generating"

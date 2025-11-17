@@ -12,20 +12,20 @@ import kotlinx.coroutines.flow.map
  * Firebase Authentication Wrapper
  * Wrapper para facilitar o uso do Firebase Auth em KMP
  */
-class FirebaseAuthWrapper {
+open class FirebaseAuthWrapper {
     private val auth: FirebaseAuth = Firebase.auth
 
     /**
      * Usuário atual autenticado (null se não estiver logado)
      */
-    val currentUser: FirebaseUser?
+    open val currentUser: FirebaseUser?
         get() = auth.currentUser
 
     /**
      * Flow do estado de autenticação
      * Emite true quando logado, false quando deslogado
      */
-    val authStateFlow: Flow<Boolean> = auth.authStateChanged.map { user ->
+    open val authStateFlow: Flow<Boolean> = auth.authStateChanged.map { user ->
         user != null
     }
 
@@ -81,24 +81,24 @@ class FirebaseAuthWrapper {
     /**
      * Verifica se está logado
      */
-    val isLoggedIn: Boolean
+    open val isLoggedIn: Boolean
         get() = currentUser != null
 
     /**
      * UID do usuário atual
      */
-    val currentUserId: String?
+    open val currentUserId: String?
         get() = currentUser?.uid
 
     /**
      * Email do usuário atual
      */
-    val currentUserEmail: String?
+    open val currentUserEmail: String?
         get() = currentUser?.email
 
     /**
      * Nome de exibição do usuário atual
      */
-    val currentUserDisplayName: String?
+    open val currentUserDisplayName: String?
         get() = currentUser?.displayName
 }

@@ -22,7 +22,7 @@ class FakeAuthRepository : AuthRepository {
                 id = "test-user-id",
                 email = email,
                 displayName = "Test User",
-                createdAt = Clock.System.now()
+                createdAtMillis = null
             )
             currentUser = user
             AuthResult.Success(user)
@@ -41,7 +41,7 @@ class FakeAuthRepository : AuthRepository {
                 id = "new-user-id",
                 email = email,
                 displayName = displayName,
-                createdAt = Clock.System.now()
+                createdAtMillis = null
             )
             currentUser = user
             AuthResult.Success(user)
@@ -67,7 +67,7 @@ class FakeAuthRepository : AuthRepository {
                 email = "",
                 displayName = "Anonymous",
                 isAnonymous = true,
-                createdAt = Clock.System.now()
+                createdAtMillis = null
             )
             currentUser = user
             AuthResult.Success(user)
@@ -84,7 +84,7 @@ class FakeAuthRepository : AuthRepository {
                     id = "",
                     email = "",
                     displayName = "",
-                    createdAt = Clock.System.now()
+                    createdAtMillis = null
                 )
             )
         }

@@ -110,19 +110,19 @@
 - [x] Configurar Koin module: `features/auth/data/di/AuthModule.kt`
 
 ### 3.3 UI Layer
-- [ ] Criar `features/auth/ui/login/LoginScreen.kt`
-- [ ] Criar `features/auth/ui/login/LoginViewModel.kt`
-- [ ] Criar `features/auth/ui/login/LoginState.kt` (data class)
-- [ ] Criar `features/auth/ui/login/LoginEvent.kt` (sealed class)
-- [ ] Criar `features/auth/ui/signup/SignUpScreen.kt`
-- [ ] Criar `features/auth/ui/signup/SignUpViewModel.kt`
-- [ ] Criar `features/auth/ui/signup/SignUpState.kt`
-- [ ] Criar `features/auth/ui/signup/SignUpEvent.kt`
-- [ ] Implementar validação de email/senha
-- [ ] Implementar Google Sign-In (Android e iOS)
-- [ ] Implementar Apple Sign-In (iOS)
-- [ ] Implementar login anônimo
-- [ ] Adicionar loading states e error handling
+- [x] Criar `features/auth/ui/login/LoginScreen.kt`
+- [x] Criar `features/auth/ui/login/LoginViewModel.kt`
+- [x] Criar `features/auth/ui/login/LoginState.kt` (data class)
+- [x] Criar `features/auth/ui/login/LoginEvent.kt` (sealed class)
+- [x] Criar `features/auth/ui/signup/SignUpScreen.kt`
+- [x] Criar `features/auth/ui/signup/SignUpViewModel.kt`
+- [x] Criar `features/auth/ui/signup/SignUpState.kt`
+- [x] Criar `features/auth/ui/signup/SignUpEvent.kt`
+- [x] Implementar validação de email/senha
+- [ ] Implementar Google Sign-In (Android e iOS) - TODO: Botão criado mas desabilitado
+- [ ] Implementar Apple Sign-In (iOS) - TODO: Botão criado mas desabilitado (só iOS)
+- [x] Implementar login anônimo
+- [x] Adicionar loading states e error handling
 
 ### 3.4 Testes
 - [x] Testes unitários: `SignInWithEmailUseCaseTest.kt`
@@ -132,8 +132,8 @@
 - [x] Testes unitários: `SignInAnonymouslyUseCaseTest.kt`
 - [x] Testes unitários: `SignOutUseCaseTest.kt`
 - [x] Testes unitários: `GetCurrentUserUseCaseTest.kt`
-- [ ] Testes unitários: `LoginViewModelTest.kt`
-- [ ] Testes unitários: `SignUpViewModelTest.kt`
+- [x] Testes unitários: `LoginViewModelTest.kt` (13 testes)
+- [x] Testes unitários: `SignUpViewModelTest.kt` (14 testes)
 
 ---
 

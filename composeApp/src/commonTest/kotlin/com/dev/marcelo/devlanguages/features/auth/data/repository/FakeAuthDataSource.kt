@@ -20,7 +20,7 @@ class FakeAuthDataSource : AuthDataSource {
                 id = "test-user-id",
                 email = email,
                 displayName = "Test User",
-                createdAt = null
+                createdAtMillis = null
             )
             currentUser = user
             Result.success(user)
@@ -39,7 +39,7 @@ class FakeAuthDataSource : AuthDataSource {
                 id = "new-user-id",
                 email = email,
                 displayName = displayName,
-                createdAt = null
+                createdAtMillis = null
             )
             currentUser = user
             Result.success(user)
@@ -55,7 +55,7 @@ class FakeAuthDataSource : AuthDataSource {
                 email = "google@test.com",
                 displayName = "Google User",
                 photoUrl = "https://example.com/photo.jpg",
-                createdAt = null
+                createdAtMillis = null
             )
             currentUser = user
             Result.success(user)
@@ -70,7 +70,7 @@ class FakeAuthDataSource : AuthDataSource {
                 id = "apple-user-id",
                 email = "apple@test.com",
                 displayName = "Apple User",
-                createdAt = null
+                createdAtMillis = null
             )
             currentUser = user
             Result.success(user)
@@ -86,7 +86,7 @@ class FakeAuthDataSource : AuthDataSource {
                 email = "",
                 displayName = "Anonymous",
                 isAnonymous = true,
-                createdAt = null
+                createdAtMillis = null
             )
             currentUser = user
             Result.success(user)

@@ -3,7 +3,6 @@ package com.dev.marcelo.devlanguages.features.auth.data.datasource
 import com.dev.marcelo.devlanguages.core.auth.FirebaseAuthWrapper
 import com.dev.marcelo.devlanguages.features.auth.domain.model.User
 import dev.gitlive.firebase.auth.FirebaseUser
-import kotlinx.datetime.Clock
 
 /**
  * FirebaseAuthDataSource
@@ -99,7 +98,7 @@ class FirebaseAuthDataSource(
             displayName = displayName ?: "",
             photoUrl = photoURL,
             isAnonymous = isAnonymous,
-            createdAt = Clock.System.now()
+            createdAtMillis = null // TODO: Add proper timestamp
         )
     }
 }

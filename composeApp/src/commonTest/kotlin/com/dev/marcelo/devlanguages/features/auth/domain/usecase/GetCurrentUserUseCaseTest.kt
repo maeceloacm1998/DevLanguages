@@ -26,7 +26,7 @@ class GetCurrentUserUseCaseTest {
             id = "test-id",
             email = "test@example.com",
             displayName = "Test User",
-            createdAt = Clock.System.now()
+            createdAtMillis = null
         )
         fakeRepository.currentUser = testUser
 

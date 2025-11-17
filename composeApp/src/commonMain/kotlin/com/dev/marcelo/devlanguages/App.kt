@@ -20,6 +20,8 @@ import com.dev.marcelo.devlanguages.core.navigation.Screen
 import com.dev.marcelo.devlanguages.core.theme.AppTheme
 import com.dev.marcelo.devlanguages.features.auth.ui.login.LoginScreen
 import com.dev.marcelo.devlanguages.features.auth.ui.signup.SignUpScreen
+import com.dev.marcelo.devlanguages.features.onboarding.ui.language.LanguageSelectionScreen
+import com.dev.marcelo.devlanguages.features.onboarding.ui.tutorial.TutorialScreen
 import org.koin.compose.KoinApplication
 
 /**
@@ -66,7 +68,9 @@ private fun AppNavigation() {
         composable<Screen.Login> {
             LoginScreen(
                 onNavigateToHome = {
-                    navController.navigate(Screen.Home) {
+                    // TODO: Verificar se usuário já completou onboarding
+                    // Por enquanto, sempre vai para onboarding
+                    navController.navigate(Screen.LanguageSelection) {
                         popUpTo<Screen.Login> { inclusive = true }
                     }
                 },
@@ -79,7 +83,8 @@ private fun AppNavigation() {
         composable<Screen.SignUp> {
             SignUpScreen(
                 onNavigateToHome = {
-                    navController.navigate(Screen.Home) {
+                    // Após cadastro, vai para onboarding
+                    navController.navigate(Screen.LanguageSelection) {
                         popUpTo<Screen.SignUp> { inclusive = true }
                     }
                 },
@@ -90,8 +95,22 @@ private fun AppNavigation() {
         }
 
         // ===== Onboarding Flow =====
-        composable<Screen.Onboarding> {
-            PlaceholderScreen("Onboarding Screen")
+        composable<Screen.LanguageSelection> {
+            LanguageSelectionScreen(
+                onNavigateToTutorial = {
+                    navController.navigate(Screen.Tutorial)
+                }
+            )
+        }
+
+        composable<Screen.Tutorial> {
+            TutorialScreen(
+                onNavigateToHome = {
+                    navController.navigate(Screen.Home) {
+                        popUpTo<Screen.Tutorial> { inclusive = true }
+                    }
+                }
+            )
         }
 
         // ===== Main App Flow =====
