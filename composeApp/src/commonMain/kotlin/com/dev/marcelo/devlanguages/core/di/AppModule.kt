@@ -1,5 +1,6 @@
 package com.dev.marcelo.devlanguages.core.di
 
+import com.dev.marcelo.devlanguages.features.auth.data.di.authModule
 import org.koin.core.module.Module
 
 /**
@@ -8,9 +9,10 @@ import org.koin.core.module.Module
  */
 val appModules: List<Module> = listOf(
     networkModule,
-    firebaseModule
+    firebaseModule,
+    authModule
     // Adicionar outros módulos conforme forem criados:
-    // authModule (UseCases, Repositories, ViewModels da feature de auth)
     // homeModule (UseCases, Repositories, ViewModels da feature de home)
+    // gameModule (UseCases, Repositories, ViewModels da feature de games)
     // etc...
 )

@@ -103,11 +103,11 @@
   - `features/auth/domain/usecase/GetCurrentUserUseCase.kt`
 
 ### 3.2 Data Layer
-- [ ] Criar `features/auth/data/datasource/AuthDataSource.kt` (interface)
-- [ ] Criar `features/auth/data/datasource/FirebaseAuthDataSource.kt` (implementação)
-- [ ] Criar `features/auth/data/repository/AuthRepositoryImpl.kt`
-- [ ] Criar DTOs se necessário
-- [ ] Configurar Koin module: `features/auth/data/di/AuthModule.kt`
+- [x] Criar `features/auth/data/datasource/AuthDataSource.kt` (interface)
+- [x] Criar `features/auth/data/datasource/FirebaseAuthDataSource.kt` (implementação)
+- [x] Criar `features/auth/data/repository/AuthRepositoryImpl.kt`
+- [x] Criar DTOs se necessário (N/A - usando models do domain diretamente)
+- [x] Configurar Koin module: `features/auth/data/di/AuthModule.kt`
 
 ### 3.3 UI Layer
 - [ ] Criar `features/auth/ui/login/LoginScreen.kt`
