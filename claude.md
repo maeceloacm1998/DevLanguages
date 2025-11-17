@@ -248,6 +248,30 @@ commonMain/kotlin/com/dev/marcelo/devlanguages/
    - Commits devem ser atômicos (uma funcionalidade por vez)
    - Sempre referenciar qual item do checklist foi completado
 
+3. **SEMPRE crie testes unitários para todo código novo:**
+   - **OBRIGATÓRIO:** Todo Use Case, ViewModel, Repository deve ter testes unitários
+   - **ANTES de commitar:** Rodar os testes e garantir que TODOS estão passando
+   - **Se algum teste falhar:** Corrigir imediatamente antes do commit
+   - **Comando para rodar testes:** `./gradlew test` ou `./gradlew :composeApp:testDebugUnitTest`
+   - **Localização dos testes:** `composeApp/src/commonTest/kotlin/`
+   - **Ferramentas:**
+     - `kotlin-test` para assertions
+     - `kotlinx-coroutines-test` para testes de coroutines
+     - `turbine` para testes de Flows
+     - Mocks quando necessário (MockK ou manual)
+   - **Cobertura mínima:** 70% para Use Cases e ViewModels
+   - **Estrutura de teste:**
+     ```kotlin
+     class MyUseCaseTest {
+         @Test
+         fun `test description in given-when-then format`() = runTest {
+             // Given (Arrange)
+             // When (Act)
+             // Then (Assert)
+         }
+     }
+     ```
+
 **Outras Regras:**
 1. **Clean Architecture obrigatória:** Toda feature deve ter separação clara entre `data/domain/ui`
 2. **MVVM pattern:** ViewModels gerenciam estado, Composables são stateless quando possível
