@@ -1,49 +1,160 @@
 package com.dev.marcelo.devlanguages
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
+import com.dev.marcelo.devlanguages.core.di.appModule
+import com.dev.marcelo.devlanguages.core.di.firebaseModule
+import com.dev.marcelo.devlanguages.core.di.networkModule
+import com.dev.marcelo.devlanguages.core.navigation.RootScreen
+import com.dev.marcelo.devlanguages.core.navigation.Screen
+import com.dev.marcelo.devlanguages.core.theme.AppTheme
+import org.koin.compose.KoinApplication
 
-import devlanguages.composeapp.generated.resources.Res
-import devlanguages.composeapp.generated.resources.compose_multiplatform
-
+/**
+ * DevLanguages App
+ * Entry point do aplicativo multiplataforma
+ */
 @Composable
-@Preview
 fun App() {
-    MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(
+    // Inicializar Koin com todos os modules
+    KoinApplication(application = {
+        modules(
+            appModule,
+            networkModule,
+            firebaseModule
+        )
+    }) {
+        AppTheme {
+            AppNavigation()
+        }
+    }
+}
+
+/**
+ * Navigation setup
+ * Gerencia todas as rotas do aplicativo
+ */
+@Composable
+private fun AppNavigation() {
+    val navController = rememberNavController()
+
+    NavHost(
+        navController = navController,
+        startDestination = RootScreen
+    ) {
+        // Root - Decide entre Login ou Home baseado em autenticação
+        composable<RootScreen> {
+            // TODO: Verificar se usuário está autenticado
+            // Se sim: navegar para Home
+            // Se não: navegar para Login
+            PlaceholderScreen("Root Screen")
+        }
+
+        // ===== Authentication Flow =====
+        composable<Screen.Login> {
+            PlaceholderScreen("Login Screen")
+        }
+
+        composable<Screen.SignUp> {
+            PlaceholderScreen("SignUp Screen")
+        }
+
+        // ===== Onboarding Flow =====
+        composable<Screen.Onboarding> {
+            PlaceholderScreen("Onboarding Screen")
+        }
+
+        // ===== Main App Flow =====
+        composable<Screen.Home> {
+            PlaceholderScreen("Home Screen")
+        }
+
+        composable<Screen.Profile> {
+            PlaceholderScreen("Profile Screen")
+        }
+
+        // ===== Game Generation Flow =====
+        composable<Screen.Generating> {
+            val args = it.toRoute<Screen.Generating>()
+            PlaceholderScreen("Generating Screen\nPrompt: ${args.prompt}\nLanguage: ${args.language}")
+        }
+
+        composable<Screen.Explanation> {
+            val args = it.toRoute<Screen.Explanation>()
+            PlaceholderScreen("Explanation Screen\nSession: ${args.sessionId}")
+        }
+
+        // ===== Game Flow =====
+        composable<Screen.GameContainer> {
+            val args = it.toRoute<Screen.GameContainer>()
+            PlaceholderScreen("Game Container\nSession: ${args.sessionId}")
+        }
+
+        composable<Screen.MatchingGame> {
+            val args = it.toRoute<Screen.MatchingGame>()
+            PlaceholderScreen("Matching Game\nGame: ${args.gameId}")
+        }
+
+        composable<Screen.TranslationGame> {
+            val args = it.toRoute<Screen.TranslationGame>()
+            PlaceholderScreen("Translation Game\nGame: ${args.gameId}")
+        }
+
+        composable<Screen.FillBlanksGame> {
+            val args = it.toRoute<Screen.FillBlanksGame>()
+            PlaceholderScreen("Fill Blanks Game\nGame: ${args.gameId}")
+        }
+
+        // ===== Results Flow =====
+        composable<Screen.Score> {
+            val args = it.toRoute<Screen.Score>()
+            PlaceholderScreen("Score Screen\nSession: ${args.sessionId}")
+        }
+
+        // ===== Subscription Flow =====
+        composable<Screen.Paywall> {
+            PlaceholderScreen("Paywall Screen")
+        }
+
+        composable<Screen.Subscription> {
+            PlaceholderScreen("Subscription Screen")
+        }
+
+        // ===== Settings Flow =====
+        composable<Screen.Settings> {
+            PlaceholderScreen("Settings Screen")
+        }
+    }
+}
+
+/**
+ * Placeholder screen para desenvolvimento
+ * Será substituída pelas telas reais conforme features forem implementadas
+ */
+@Composable
+private fun PlaceholderScreen(title: String) {
+    Scaffold { paddingValues ->
+        Box(
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
+                .fillMaxSize()
+                .padding(paddingValues),
+            contentAlignment = Alignment.Center
         ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
-            }
+            Text(
+                text = title,
+                style = MaterialTheme.typography.headlineMedium
+            )
         }
     }
 }

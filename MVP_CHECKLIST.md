@@ -18,8 +18,8 @@
   - Kotlinx DateTime
   - Kamel (imagens)
 - [x] Configurar plugins no `build.gradle.kts`
-- [ ] Criar arquivo de configuração para chaves de API (local.properties)
-- [ ] Adicionar .gitignore para chaves sensíveis
+- [x] Criar arquivo de configuração para chaves de API (local.properties)
+- [x] Adicionar .gitignore para chaves sensíveis
 
 ### 1.2 Estrutura de Pastas
 - [x] Criar pasta `core/` e subpastas
@@ -48,7 +48,7 @@
 
 ### 2.2 Navegação
 - [x] Criar `core/navigation/Screen.kt` (sealed interface com todas as telas)
-- [ ] Configurar Navigation Compose no App.kt
+- [x] Configurar Navigation Compose no App.kt
 - [x] Criar `core/navigation/NavigationExtensions.kt` (funções helper)
 
 ### 2.3 Network Layer
@@ -69,8 +69,8 @@
   - Parsear estrutura: topic, explanation, games[]
 
 ### 2.5 Firebase Setup
-- [ ] Configurar Firebase no projeto Android (`google-services.json`)
-- [ ] Configurar Firebase no projeto iOS (`GoogleService-Info.plist`)
+- [x] Configurar Firebase no projeto Android (`google-services.json`)
+- [x] Configurar Firebase no projeto iOS (`GoogleService-Info.plist`)
 - [x] Criar `core/auth/FirebaseAuthWrapper.kt` (abstração multiplataforma)
 - [x] Criar `core/database/FirestoreWrapper.kt` (abstração multiplataforma)
 
@@ -78,7 +78,7 @@
 - [x] Criar `core/di/NetworkModule.kt`
 - [x] Criar `core/di/FirebaseModule.kt`
 - [x] Criar `core/di/AppModule.kt`
-- [ ] Configurar Koin na inicialização do app
+- [x] Configurar Koin na inicialização do app
 
 ### 2.7 Utils
 - [x] Criar `core/utils/DateTimeUtils.kt`
@@ -565,18 +565,19 @@
 
 ### ✅ COMPLETADO (Core Infrastructure)
 
-**1. Setup Inicial do Projeto**
+**1. Setup Inicial do Projeto (100%)** ✅
 - ✅ Dependências KMP configuradas
 - ✅ Estrutura de pastas criada
-- ⚠️ Falta: Configuração de chaves API e .gitignore
+- ✅ Configuração de chaves API (local.properties + local.properties.example)
+- ✅ .gitignore configurado para chaves sensíveis
 
-**2. Core Infrastructure**
+**2. Core Infrastructure (100%)** ✅
 - ✅ 2.1 Theme e Design System (100%)
-- ✅ 2.2 Navegação - Estrutura (50% - falta configurar no App.kt)
+- ✅ 2.2 Navegação (100% - NavHost com todas as rotas + placeholders)
 - ✅ 2.3 Network Layer (100%)
 - ✅ 2.4 LLM Provider (100% - Gemini + TOON Parser)
-- ⚠️ 2.5 Firebase Setup (50% - wrappers criados, falta config files)
-- ⚠️ 2.6 Dependency Injection (75% - modules criados, falta init)
+- ✅ 2.5 Firebase Setup (100% - wrappers + config files copiados)
+- ✅ 2.6 Dependency Injection (100% - modules + Koin initialized)
 - ✅ 2.7 Utils (100%)
 
 **Commits Realizados:**
@@ -586,25 +587,31 @@
 - `feat: core - implement network layer and utilities`
 - `feat: core - implement Firebase integration and dependency injection`
 - `feat: core - update Kotlin and Java compatibility, implement Gemini API integration and utilities`
+- `docs: update MVP checklist with current implementation status`
+- `feat: core - finalize setup with Koin, Navigation, and Firebase config` (próximo)
+
+**Arquivos Criados nesta Sessão:**
+- ✅ `local.properties.example` - Template para API keys
+- ✅ `local.properties` - Atualizado com seção de API keys
+- ✅ `composeApp/google-services.json` - Copiado do Downloads
+- ✅ `iosApp/iosApp/GoogleService-Info.plist` - Copiado do Downloads
+- ✅ `App.kt` - Reescrito com Koin + Navigation Compose
 
 ### 🚧 PRÓXIMOS PASSOS (Recomendado)
 
-1. **Finalizar Core:**
-   - [ ] Configurar Firebase (google-services.json, GoogleService-Info.plist)
-   - [ ] Configurar Koin initialization no App.kt
-   - [ ] Configurar Navigation Compose no App.kt
-   - [ ] Setup de chaves API (local.properties + .gitignore)
+**Core Infrastructure: 100% COMPLETO! 🎉**
 
-2. **Começar Feature: Autenticação (Seção 3)**
-   - Domain Layer → Data Layer → UI Layer
-   - Primeira funcionalidade concreta do app
+**Próxima Etapa: Feature - Autenticação (Seção 3)**
+- Domain Layer → Data Layer → UI Layer
+- Primeira funcionalidade concreta do app
+- Login, SignUp, Google Sign-In, Apple Sign-In, Modo Anônimo
 
 ### 📈 Status Geral
 
-**Core Infrastructure:** ~85% completo
+**Core Infrastructure:** ✅ 100% completo
 **Features (Auth, Home, Games, etc):** 0% completo
 **Testes:** 0% completo
 **Build & Deploy:** 0% completo
 
-**Última atualização:** 2025-11-17
+**Última atualização:** 2025-11-17 (Finalização do Core)
 **Análise realizada por:** Claude Code
