@@ -8,80 +8,82 @@
 ## 1. Setup Inicial do Projeto
 
 ### 1.1 Configuração Base
-- [ ] Adicionar dependências KMP no `gradle/libs.versions.toml`
+- [x] Adicionar dependências KMP no `gradle/libs.versions.toml`
   - Ktor Client
   - Kotlinx Serialization
   - Koin
-  - Voyager (navegação)
+  - Navigation Compose (não Voyager)
   - Firebase KMP SDK
   - Napier (logging)
   - Kotlinx DateTime
   - Kamel (imagens)
-- [ ] Configurar plugins no `build.gradle.kts`
+- [x] Configurar plugins no `build.gradle.kts`
 - [ ] Criar arquivo de configuração para chaves de API (local.properties)
 - [ ] Adicionar .gitignore para chaves sensíveis
 
 ### 1.2 Estrutura de Pastas
-- [ ] Criar pasta `core/` e subpastas
+- [x] Criar pasta `core/` e subpastas
   - `core/network/`
   - `core/auth/`
   - `core/di/`
   - `core/utils/`
   - `core/theme/`
   - `core/navigation/`
-- [ ] Criar pasta `features/`
+- [x] Criar pasta `features/`
 
 ---
 
 ## 2. Core Infrastructure
 
 ### 2.1 Theme e Design System
-- [ ] Criar `core/theme/Color.kt` - definir paleta de cores
-- [ ] Criar `core/theme/Typography.kt` - definir tipografia
-- [ ] Criar `core/theme/Theme.kt` - tema principal
-- [ ] Criar `core/theme/Spacing.kt` - espaçamentos padronizados
-- [ ] Criar componentes reutilizáveis básicos
+- [x] Criar `core/theme/Color.kt` - definir paleta de cores
+- [x] Criar `core/theme/Typography.kt` - definir tipografia
+- [x] Criar `core/theme/Theme.kt` - tema principal
+- [x] Criar `core/theme/Spacing.kt` - espaçamentos padronizados
+- [x] Criar componentes reutilizáveis básicos
   - `PrimaryButton.kt`
   - `SecondaryButton.kt`
   - `CustomTextField.kt`
   - `LoadingIndicator.kt`
 
 ### 2.2 Navegação
-- [ ] Criar `core/navigation/Screen.kt` (sealed class com todas as telas)
-- [ ] Configurar Voyager Navigator
-- [ ] Criar `core/navigation/NavigationExtensions.kt` (funções helper)
+- [x] Criar `core/navigation/Screen.kt` (sealed interface com todas as telas)
+- [ ] Configurar Navigation Compose no App.kt
+- [x] Criar `core/navigation/NavigationExtensions.kt` (funções helper)
 
 ### 2.3 Network Layer
-- [ ] Criar `core/network/KtorClient.kt` - configuração do Ktor
-- [ ] Criar `core/network/ApiResult.kt` - sealed class para resultados
-- [ ] Criar `core/network/NetworkException.kt` - tratamento de erros
+- [x] Criar `core/network/KtorClient.kt` - configuração do Ktor
+- [x] Criar `core/network/ApiResult.kt` - sealed class para resultados
+- [x] Criar `core/network/NetworkException.kt` - tratamento de erros
 
 ### 2.4 LLM Provider (Abstração)
-- [ ] Criar interface `core/network/llm/LLMProvider.kt`
-- [ ] Criar `core/network/llm/GeminiProvider.kt` (implementação)
-- [ ] Criar models de request/response
+- [x] Criar interface `core/network/llm/LLMProvider.kt`
+- [x] Criar `core/network/llm/GeminiProvider.kt` (implementação)
+- [x] Criar models de request/response
   - `GameGenerationRequest.kt`
   - `GameGenerationResponse.kt`
-- [ ] Implementar TOON parser básico
+  - `LLMConfig.kt`
+  - `GeminiModels.kt`
+- [x] Implementar TOON parser básico
   - `core/network/toon/ToonParser.kt`
   - Parsear estrutura: topic, explanation, games[]
 
 ### 2.5 Firebase Setup
 - [ ] Configurar Firebase no projeto Android (`google-services.json`)
 - [ ] Configurar Firebase no projeto iOS (`GoogleService-Info.plist`)
-- [ ] Criar `core/auth/FirebaseAuthWrapper.kt` (abstração multiplataforma)
-- [ ] Criar `core/database/FirestoreWrapper.kt` (abstração multiplataforma)
+- [x] Criar `core/auth/FirebaseAuthWrapper.kt` (abstração multiplataforma)
+- [x] Criar `core/database/FirestoreWrapper.kt` (abstração multiplataforma)
 
 ### 2.6 Dependency Injection (Koin)
-- [ ] Criar `core/di/NetworkModule.kt`
-- [ ] Criar `core/di/FirebaseModule.kt`
-- [ ] Criar `core/di/AppModule.kt`
+- [x] Criar `core/di/NetworkModule.kt`
+- [x] Criar `core/di/FirebaseModule.kt`
+- [x] Criar `core/di/AppModule.kt`
 - [ ] Configurar Koin na inicialização do app
 
 ### 2.7 Utils
-- [ ] Criar `core/utils/DateTimeUtils.kt`
-- [ ] Criar `core/utils/StringExtensions.kt`
-- [ ] Criar `core/utils/ValidationUtils.kt` (email, senha, etc)
+- [x] Criar `core/utils/DateTimeUtils.kt`
+- [x] Criar `core/utils/StringExtensions.kt`
+- [x] Criar `core/utils/ValidationUtils.kt` (email, senha, etc)
 
 ---
 
@@ -557,6 +559,52 @@
 
 ---
 
-**Status Geral:** 0% completo (0/X tarefas)
+---
 
-**Última atualização:** 2025-11-16
+## 📊 Resumo do Progresso
+
+### ✅ COMPLETADO (Core Infrastructure)
+
+**1. Setup Inicial do Projeto**
+- ✅ Dependências KMP configuradas
+- ✅ Estrutura de pastas criada
+- ⚠️ Falta: Configuração de chaves API e .gitignore
+
+**2. Core Infrastructure**
+- ✅ 2.1 Theme e Design System (100%)
+- ✅ 2.2 Navegação - Estrutura (50% - falta configurar no App.kt)
+- ✅ 2.3 Network Layer (100%)
+- ✅ 2.4 LLM Provider (100% - Gemini + TOON Parser)
+- ⚠️ 2.5 Firebase Setup (50% - wrappers criados, falta config files)
+- ⚠️ 2.6 Dependency Injection (75% - modules criados, falta init)
+- ✅ 2.7 Utils (100%)
+
+**Commits Realizados:**
+- `feat: setup - configure KMP dependencies and project structure`
+- `feat: core - implement theme and design system`
+- `feat: core - implement navigation system and update design guidelines`
+- `feat: core - implement network layer and utilities`
+- `feat: core - implement Firebase integration and dependency injection`
+- `feat: core - update Kotlin and Java compatibility, implement Gemini API integration and utilities`
+
+### 🚧 PRÓXIMOS PASSOS (Recomendado)
+
+1. **Finalizar Core:**
+   - [ ] Configurar Firebase (google-services.json, GoogleService-Info.plist)
+   - [ ] Configurar Koin initialization no App.kt
+   - [ ] Configurar Navigation Compose no App.kt
+   - [ ] Setup de chaves API (local.properties + .gitignore)
+
+2. **Começar Feature: Autenticação (Seção 3)**
+   - Domain Layer → Data Layer → UI Layer
+   - Primeira funcionalidade concreta do app
+
+### 📈 Status Geral
+
+**Core Infrastructure:** ~85% completo
+**Features (Auth, Home, Games, etc):** 0% completo
+**Testes:** 0% completo
+**Build & Deploy:** 0% completo
+
+**Última atualização:** 2025-11-17
+**Análise realizada por:** Claude Code
