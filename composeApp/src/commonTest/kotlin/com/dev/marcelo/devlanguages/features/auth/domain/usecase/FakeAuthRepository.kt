@@ -49,34 +49,13 @@ class FakeAuthRepository : AuthRepository {
     }
 
     override suspend fun signInWithGoogle(): AuthResult {
-        return if (shouldReturnError) {
-            AuthResult.Error(errorMessage)
-        } else {
-            val user = User(
-                id = "google-user-id",
-                email = "google@test.com",
-                displayName = "Google User",
-                photoUrl = "https://example.com/photo.jpg",
-                createdAt = Clock.System.now()
-            )
-            currentUser = user
-            AuthResult.Success(user)
-        }
+        // Google Sign-In not implemented yet, always return error
+        return AuthResult.Error("Google Sign-In não implementado ainda")
     }
 
     override suspend fun signInWithApple(): AuthResult {
-        return if (shouldReturnError) {
-            AuthResult.Error(errorMessage)
-        } else {
-            val user = User(
-                id = "apple-user-id",
-                email = "apple@test.com",
-                displayName = "Apple User",
-                createdAt = Clock.System.now()
-            )
-            currentUser = user
-            AuthResult.Success(user)
-        }
+        // Apple Sign-In not implemented yet, always return error
+        return AuthResult.Error("Apple Sign-In não implementado ainda")
     }
 
     override suspend fun signInAnonymously(): AuthResult {

@@ -328,24 +328,66 @@ rm -rf build .gradle .kotlin
 
 ### Design & UI/UX
 
-**🎨 Diretrizes de Design (Responsabilidade do Claude):**
-- **Estilo:** Minimalista, intuitivo, bonito e chamativo
-- **Contexto:** App educacional gamificado
-- **Cores:** Paleta minimalista já definida (azul primary, verde secondary, roxo accent)
-- **Objetivo:** Design deve facilitar o aprendizado e engajar o usuário
-- **Princípios:**
-  - Interfaces limpas e sem poluição visual
-  - Hierarquia visual clara
-  - Feedback visual imediato nas interações
-  - Animações suaves e não intrusivas
-  - Acessibilidade (contraste, tamanhos de fonte, áreas de toque)
-  - Gamificação integrada de forma natural (não exagerada)
+**🎨 REGRAS CRÍTICAS DE DESIGN (Responsabilidade do Claude):**
+
+**Filosofia de Design:**
+- **Estilo:** Divertido, gamificado, alegre e moderno - Inspirado no Duolingo mas com IDENTIDADE PRÓPRIA
+- **Contexto:** App educacional gamificado para aprendizado de línguas
+- **IMPORTANTE:** NÃO copiar as cores do Duolingo - criar paleta única e vibrante
+- **Objetivo:** Design deve ser divertido, engajador e facilitar o aprendizado
+
+**🚨 OBRIGATÓRIOS em TODAS as telas:**
+
+1. **Cores Vibrantes e Únicas:**
+   - ❌ NÃO usar verde #58CC02 (Duolingo)
+   - ✅ Criar paleta única, alegre e gamificada
+   - ✅ Cores vibrantes mas diferentes do Duolingo
+   - ✅ Paleta principal: 3-4 cores complementares
+   - ✅ Cores secundárias para feedback (sucesso, erro, atenção)
+
+2. **Ícones SEMPRE:**
+   - ✅ Todos os botões DEVEM ter ícones
+   - ✅ Campos de texto DEVEM ter ícones leading
+   - ✅ Ações DEVEM ter representação visual com ícone
+   - ✅ Usar Material Icons Extended ou custom icons
+
+3. **Imagens e Ilustrações:**
+   - ✅ Telas DEVEM ter elementos visuais (ilustrações, mascotes, etc.)
+   - ✅ Estados vazios DEVEM ter ilustrações
+   - ✅ Feedback visual além de texto (ex: mascote feliz/triste)
+   - ✅ Considerar ilustrações no onboarding e tutoriais
+
+4. **Animações OBRIGATÓRIAS:**
+   - ✅ Transições suaves entre telas (slide, fade, scale)
+   - ✅ Feedback animado em botões (ripple, scale, bounce)
+   - ✅ Animações de sucesso/erro (shake, pop, confetti)
+   - ✅ Loading states animados (não apenas spinner)
+   - ✅ Micro-interações em elementos interativos
+   - ✅ Usar Compose Animation API
+
+5. **Gamificação Visual:**
+   - ✅ Progresso visual (barras, círculos, níveis)
+   - ✅ Recompensas animadas (moedas, estrelas, badges)
+   - ✅ Celebrações visuais (confetti, fireworks, shine)
+   - ✅ Mascote/personagem do app (opcional mas recomendado)
+   - ✅ Feedback imediato e visual para ações
+
+**Princípios de Design:**
+- Interfaces ALEGRES e sem poluição visual
+- Hierarquia visual CLARA com cores e tamanhos
+- Feedback visual e sonoro IMEDIATO
+- Animações DIVERTIDAS e não intrusivas (300-500ms)
+- Acessibilidade (contraste mínimo 4.5:1, áreas de toque 48dp)
+- Consistência no design system
 
 **Decisões de design ficam a cargo do Claude**, sempre priorizando:
-1. Experiência do usuário (UX)
-2. Facilidade de uso
-3. Estética minimalista e moderna
-4. Coerência com o design system estabelecido
+1. **Diversão e Engajamento** (gamificação)
+2. **Experiência do usuário** (UX)
+3. **Identidade Visual Única** (não copiar Duolingo)
+4. **Feedback Visual Imediato** (animações e ícones)
+5. **Acessibilidade e Usabilidade**
+
+**🚨 SE NÃO TIVER ícones, imagens e animações = Design INCOMPLETO**
 
 ### Segurança & Privacidade
 - **Dados do usuário:** Email, nome, plano de assinatura, progresso nos jogos

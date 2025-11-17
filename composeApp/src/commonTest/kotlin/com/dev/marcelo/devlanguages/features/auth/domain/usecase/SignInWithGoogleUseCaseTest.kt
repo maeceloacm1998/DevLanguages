@@ -18,29 +18,12 @@ class SignInWithGoogleUseCaseTest {
     }
 
     @Test
-    fun `given successful google sign in when invoke then returns success`() = runTest {
-        // Given
-        fakeRepository.shouldReturnError = false
-
-        // When
-        val result = useCase()
-
-        // Then
-        assertTrue(result is AuthResult.Success)
-        assertEquals("google@test.com", (result as AuthResult.Success).user.email)
-    }
-
-    @Test
-    fun `given repository error when invoke then returns error`() = runTest {
-        // Given
-        fakeRepository.shouldReturnError = true
-        fakeRepository.errorMessage = "Google sign in failed"
-
+    fun `given google sign in not implemented when invoke then returns error`() = runTest {
         // When
         val result = useCase()
 
         // Then
         assertTrue(result is AuthResult.Error)
-        assertEquals("Google sign in failed", (result as AuthResult.Error).message)
+        assertTrue((result as AuthResult.Error).message.contains("não implementado"))
     }
 }

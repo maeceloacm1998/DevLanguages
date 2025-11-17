@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
@@ -17,6 +18,8 @@ import com.dev.marcelo.devlanguages.core.di.appModules
 import com.dev.marcelo.devlanguages.core.navigation.RootScreen
 import com.dev.marcelo.devlanguages.core.navigation.Screen
 import com.dev.marcelo.devlanguages.core.theme.AppTheme
+import com.dev.marcelo.devlanguages.features.auth.ui.login.LoginScreen
+import com.dev.marcelo.devlanguages.features.auth.ui.signup.SignUpScreen
 import org.koin.compose.KoinApplication
 
 /**
@@ -50,18 +53,40 @@ private fun AppNavigation() {
         // Root - Decide entre Login ou Home baseado em autenticação
         composable<RootScreen> {
             // TODO: Verificar se usuário está autenticado
-            // Se sim: navegar para Home
-            // Se não: navegar para Login
-            PlaceholderScreen("Root Screen")
+            // Por enquanto, sempre navega para Login
+            LaunchedEffect(Unit) {
+                navController.navigate(Screen.Login) {
+                    popUpTo<RootScreen> { inclusive = true }
+                }
+            }
+            PlaceholderScreen("Loading...")
         }
 
         // ===== Authentication Flow =====
         composable<Screen.Login> {
-            PlaceholderScreen("Login Screen")
+            LoginScreen(
+                onNavigateToHome = {
+                    navController.navigate(Screen.Home) {
+                        popUpTo<Screen.Login> { inclusive = true }
+                    }
+                },
+                onNavigateToSignUp = {
+                    navController.navigate(Screen.SignUp)
+                }
+            )
         }
 
         composable<Screen.SignUp> {
-            PlaceholderScreen("SignUp Screen")
+            SignUpScreen(
+                onNavigateToHome = {
+                    navController.navigate(Screen.Home) {
+                        popUpTo<Screen.SignUp> { inclusive = true }
+                    }
+                },
+                onNavigateToLogin = {
+                    navController.popBackStack()
+                }
+            )
         }
 
         // ===== Onboarding Flow =====

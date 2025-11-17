@@ -11,6 +11,8 @@ import com.dev.marcelo.devlanguages.features.auth.domain.usecase.SignInWithEmail
 import com.dev.marcelo.devlanguages.features.auth.domain.usecase.SignInWithGoogleUseCase
 import com.dev.marcelo.devlanguages.features.auth.domain.usecase.SignOutUseCase
 import com.dev.marcelo.devlanguages.features.auth.domain.usecase.SignUpWithEmailUseCase
+import com.dev.marcelo.devlanguages.features.auth.ui.login.LoginViewModel
+import com.dev.marcelo.devlanguages.features.auth.ui.signup.SignUpViewModel
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
@@ -36,7 +38,7 @@ val authModule = module {
     factoryOf(::SignOutUseCase)
     factoryOf(::GetCurrentUserUseCase)
 
-    // ViewModels serão adicionados aqui quando criados
-    // viewModelOf(::LoginViewModel)
-    // viewModelOf(::SignUpViewModel)
+    // ViewModels
+    factoryOf(::LoginViewModel)
+    factoryOf(::SignUpViewModel)
 }

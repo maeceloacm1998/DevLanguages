@@ -7,34 +7,34 @@ import androidx.compose.ui.graphics.Color
  * Paleta de cores para o app de aprendizado gamificado
  */
 
-// Primary Colors - Azul vibrante (educação e confiança)
-val Primary = Color(0xFF3B82F6)
-val PrimaryDark = Color(0xFF2563EB)
-val PrimaryLight = Color(0xFF60A5FA)
+// Primary Colors - Roxo/Magenta vibrante (criatividade, diversão, único) - IDENTIDADE PRÓPRIA
+val Primary = Color(0xFF9B4DFF)        // Roxo vibrante
+val PrimaryDark = Color(0xFF7B3DD1)     // Roxo escuro
+val PrimaryLight = Color(0xFFB975FF)    // Roxo claro
 
-// Secondary Colors - Verde (gamificação e sucesso)
-val Secondary = Color(0xFF10B981)
-val SecondaryDark = Color(0xFF059669)
-val SecondaryLight = Color(0xFF34D399)
+// Secondary Colors - Coral/Laranja (energia, amigável, caloroso)
+val Secondary = Color(0xFFFF6B6B)      // Coral vibrante
+val SecondaryDark = Color(0xFFEE5A52)  // Coral escuro
+val SecondaryLight = Color(0xFFFF8E8E) // Coral claro
 
-// Accent Colors - Roxo (premium e especial)
-val Accent = Color(0xFF8B5CF6)
-val AccentDark = Color(0xFF7C3AED)
-val AccentLight = Color(0xFFA78BFA)
+// Accent Colors - Cyan/Teal (frescor, moderno, confiança)
+val Accent = Color(0xFF4ECDC4)         // Cyan vibrante
+val AccentDark = Color(0xFF3DB3AA)     // Cyan escuro
+val AccentLight = Color(0xFF7ED9D2)    // Cyan claro
 
-// Error & Warning
-val Error = Color(0xFFEF4444)
-val ErrorDark = Color(0xFFDC2626)
-val Warning = Color(0xFFF59E0B)
-val WarningDark = Color(0xFFD97706)
+// Error & Warning - Mais suaves e amigáveis
+val Error = Color(0xFFFF4B4B)          // Vermelho mais suave
+val ErrorDark = Color(0xFFEA3323)      // Vermelho escuro
+val Warning = Color(0xFFFFC800)        // Amarelo alerta vibrante
+val WarningDark = Color(0xFFFF9600)    // Laranja alerta
 
-// Success
-val Success = Color(0xFF10B981)
-val SuccessLight = Color(0xFF34D399)
+// Success - Verde alegre (mas diferente do Duolingo)
+val Success = Color(0xFF4CAF50)        // Verde Material Design
+val SuccessLight = Color(0xFF80E27E)   // Verde claro
 
-// Info
-val Info = Color(0xFF3B82F6)
-val InfoLight = Color(0xFF60A5FA)
+// Info - Cyan
+val Info = Color(0xFF4ECDC4)           // Cyan igual ao accent
+val InfoLight = Color(0xFF7ED9D2)      // Cyan claro
 
 // Neutral Colors - Light Theme
 val NeutralWhite = Color(0xFFFFFFFF)
@@ -70,20 +70,20 @@ val TextPrimaryDark = Color(0xFFFFFFFF)
 val TextSecondaryDark = Color(0xFFBDBDBD)
 val TextDisabledDark = Color(0xFF757575)
 
-// Gamification Colors
-val Gold = Color(0xFFFFD700)
-val Silver = Color(0xFFC0C0C0)
-val Bronze = Color(0xFFCD7F32)
-val Diamond = Color(0xFFB9F2FF)
+// Gamification Colors - Vibrantes e únicas
+val Gold = Color(0xFFFFD700)           // Ouro clássico
+val Silver = Color(0xFFC0C0C0)         // Prata
+val Bronze = Color(0xFFCD7F32)         // Bronze
+val Diamond = Color(0xFF4ECDC4)        // Diamante cyan (accent)
 
-// Game Feedback Colors
-val CorrectAnswer = Color(0xFF10B981)
-val WrongAnswer = Color(0xFFEF4444)
-val PartialCorrect = Color(0xFFF59E0B)
+// Game Feedback Colors - Combinam com a paleta única
+val CorrectAnswer = Color(0xFF4CAF50)  // Verde Material
+val WrongAnswer = Color(0xFFFF6B6B)    // Coral (secondary)
+val PartialCorrect = Color(0xFFFFC800) // Amarelo vibrante
 
-// Language Category Colors (opcional, para diferenciar idiomas)
-val LanguageEnglish = Color(0xFF3B82F6)
-val LanguageFrench = Color(0xFFEF4444)
-val LanguageSpanish = Color(0xFFF59E0B)
-val LanguageGerman = Color(0xFF10B981)
-val LanguageItalian = Color(0xFF8B5CF6)
+// Language Category Colors - Paleta variada e única
+val LanguageEnglish = Color(0xFF4ECDC4)  // Cyan (accent)
+val LanguageFrench = Color(0xFFFF6B6B)   // Coral (secondary)
+val LanguageSpanish = Color(0xFFFFB800)  // Amarelo/Laranja
+val LanguageGerman = Color(0xFF4CAF50)   // Verde
+val LanguageItalian = Color(0xFF9B4DFF)  // Roxo (primary)
