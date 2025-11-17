@@ -20,11 +20,13 @@ class OnboardingRepositoryImpl(
 
     override suspend fun savePreferredLanguage(userId: String, languageCode: String): Result<Unit> {
         return try {
-            firestore.updateDocument(
-                collection = USERS_COLLECTION,
-                documentId = userId,
-                updates = mapOf(FIELD_PREFERRED_LANGUAGE to languageCode)
-            )
+            // Usa set com merge para criar documento se não existir ou atualizar se existir
+            firestore.collection(USERS_COLLECTION)
+                .document(userId)
+                .set(
+                    mapOf(FIELD_PREFERRED_LANGUAGE to languageCode),
+                    merge = true
+                )
             Result.Success(Unit)
         } catch (e: Exception) {
             Result.Error(e.message ?: "Failed to save preferred language")
@@ -33,11 +35,13 @@ class OnboardingRepositoryImpl(
 
     override suspend fun markOnboardingComplete(userId: String): Result<Unit> {
         return try {
-            firestore.updateDocument(
-                collection = USERS_COLLECTION,
-                documentId = userId,
-                updates = mapOf(FIELD_ONBOARDING_COMPLETE to true)
-            )
+            // Usa set com merge para criar documento se não existir ou atualizar se existir
+            firestore.collection(USERS_COLLECTION)
+                .document(userId)
+                .set(
+                    mapOf(FIELD_ONBOARDING_COMPLETE to true),
+                    merge = true
+                )
             Result.Success(Unit)
         } catch (e: Exception) {
             Result.Error(e.message ?: "Failed to mark onboarding as complete")
